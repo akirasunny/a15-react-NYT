@@ -4,10 +4,25 @@
 	<meta charset="UTF-8">
 	<title>The New York Time Scraper</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="app"></div>
 	<footer>© Copyright 2017 Sunny (Hao) Su</footer>
 	<script src="bundle.js"></script>
+	<script>
+		function changestatus() {
+			var status = $(this).attr("value");
+			console.log(status);
+			if (status === "Saved") {
+				$(this).html("Unsave");
+			}
+		};
+
+		function changeback() {
+			$(this).html($(this).attr("value"));
+		}
+		$(document).on("hover", ".status", changestatus, changeback);
+	</script>
 </body>
 </html>

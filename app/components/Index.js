@@ -14,11 +14,7 @@ var Index = React.createClass({
 					<form action="/scrape" method="GET">
 						<button type="submit" id="refresh-articles">Scrape For Newest Articles</button>
 					</form>
-					<form action="/basic-search" method="POST">
-						<button type="submit" id="search-submit">Submit</button>
-						<Link to="/advanced-search"><button type="button" id="advanced-search">Search</button></Link>
-						<input type="text" name="search" placeholder="Quick search for articles" id="search-input" />
-					</form>
+					<Link to="/advanced-search"><button type="button" id="advanced-search">Search</button></Link>
 				</header>
 				<img id="cover" src="/assets/images/cover.jpg" />
 				<div>

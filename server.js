@@ -121,19 +121,6 @@ app.get("/api/saved", function(req, res) {
 	});
 });
 
-app.get("/:id", function(req, res) {
-	Article.findById(req.params.id, function(err, data) {
-		res.json(data);
-	})
-});
-
-app.post("/basic-search", function(req, res) {
-	res.redirect(url.format({
-		pathname: "/advanced-search",
-		query: req.body.search
-	}));
-});
-
 app.post("/advanced-search", function(req, res) {
 	var start;
 	var end;
@@ -184,7 +171,7 @@ app.post("/save/:id", function(req, res) {
 			});
 		}
 		else {
-			Article.findByIdAndUpdate(req.params.id, {$set: {issaved: true, status: "Saved"}}, {new: true}, function(err, data) {
+			Article.findByIdAndUpdate(req.params.id, {$set: {issaved: true, status: "Unsave"}}, {new: true}, function(err, data) {
 				res.redirect("/saved");
 			});
 		}
